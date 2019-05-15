@@ -1,3 +1,73 @@
+body {
+    background-image: url("https://www.setaswall.com/wp-content/uploads/2017/03/Another-Sunset-Wallpaper-1920x1080.jpg");
+}
+
 h1 {
-  color: fuchsia;
+    color: lavender;
+
+}
+
+.header {
+    color: lightblue;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.name {
+    color: lightblue;
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: center;
+    width: 50;
+
+}
+
+.name:hover {
+    background-color: black;
+    color: white;
+    font-size: 35px;
+    width: 50%;
+    margin-bottom: 50px;
+
+}
+
+.circleText {
+    padding-top: 40px;
+    height: 400px;
+    width: 400px;
+    margin: 0 auto;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    color: white;
+
+}
+
+.input {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.text1 {
+    display: flex;
+    font-size: 75%;
+    justify-content: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.button {
+    margin-top: 25px;
+}
+
+img{
+    border:solid 3px Firebrick;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: Indianred;
 }

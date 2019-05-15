@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Client Project</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Your CSS Linked Below-->
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    
-    <h1> Client Project </h1>
-    
-    <!-- jQuery Linked Below-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Your Javascript Linked Below-->
-    <script src="js/script.js" defer></script> 
-  </body>
+
+<head>
+  <title>Client Project:Weather App</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Your CSS Linked Below-->
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro" rel="stylesheet">
+</head>
+<p class="header"> Welcome to</p>
+<p class="name">iWeather</p>
+<div class="input">
+  <input class="button" placeholder="Name of City">
+  <button class="button">Submit</button>
+</div>
+
+<body>
+  <div class="circleText">
+    <!--The circle should be in the middle, need help adjusting it-->
+    <div id="date" class="text1"></div>
+    <!--Where the date is going to appear-->
+    <div id="time" class="subtext1"></div>
+    <!--Where the current time is going to appear-->
+    <div id="temp" class="text1"></div>
+    <!--Where the current temperature is going to appear-->
+    <div id="tempmin" class="text1"></div>
+    <!--Where the minimum temperature is going to appear-->
+    <div id="tempmax" class="text1"></div>
+    <!--Where the maximum temperature is going to appear-->
+    <div id="weathertype" class="text1"></div>
+    <!--Where the day's weather is going to appear-->
+
+  </div>
+
+  <!-- jQuery Linked Below-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Your Javascript Linked Below-->
+  <script src="js/script.js" defer></script>
+</body>
 
 </html>
