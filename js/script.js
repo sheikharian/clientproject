@@ -37,3 +37,6 @@ function convert (x){
 function weathericon (x){
   return "https://www.metaweather.com/static/img/weather/png/64/" + x + ".png";
 }
+
+//var d=new Date ("May 16 2019");
+//document.getElementById("date").innerHTML = d;

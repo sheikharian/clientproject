@@ -27,6 +27,7 @@ h1 {
 }
 
 .name:hover {
+    margin: 0 auto;
     background-color: black;
     color: white;
     font-size: 35px;
