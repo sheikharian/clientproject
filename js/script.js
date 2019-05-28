@@ -1,12 +1,23 @@
 /* global $ */
-
+$("#submit").click(function(){
+  weather();
+});
 //console.log('hi');
+function weather(){
+  var city=$('input').val();
 
 $.ajax({
-  url: "https://boiling-plateau-93045.herokuapp.com/https://www.metaweather.com/api/location/2459115/",
+  url:"https://boiling-plateau-93045.herokuapp.com/https://www.metaweather.com/api/location/search/?query=" + city,
+  method:"Get",
+  success:function(response){
+    console.log(response);
+    console.log(response[0].woeid);
+    var cityid=response[0].woeid;
+    $.ajax({
+  url: "https://boiling-plateau-93045.herokuapp.com/https://www.metaweather.com/api/location/" + cityid + "/",
   method: "GET",
   success: function(response,status) {
-    $('#date').append("<h1>" + response.consolidated_weather[0].applicable_date + "</h1>")
+    $('#date').append("<h1>" + formatDate(response.consolidated_weather[0].applicable_date)+ "</h1>")
     $('#temp').append("<h1 id='round'> Current Temp: " + convert(Math.round(response.consolidated_weather[0].the_temp)) + "&#8457</h1>");
     $('#tempmin').append("<h1> Minimum Temp: " + convert(Math.round(response.consolidated_weather[0].min_temp)) + "&#8457</h1>");
     $('#tempmax').append("<h1> Maximum Temp: " + convert(Math.round(response.consolidated_weather[0].max_temp)) + "&#8457</h1>");
@@ -27,6 +38,12 @@ $.ajax({
     }
   },
 });
+    
+  }
+  
+})
+}
+
 
 console.log(".circle");
 
@@ -38,5 +55,11 @@ function weathericon (x){
   return "https://www.metaweather.com/static/img/weather/png/64/" + x + ".png";
 }
 
-//var d=new Date ("May 16 2019");
-//document.getElementById("date").innerHTML = d;
+function formatDate(date){
+  var newDate= new Date(date).toUTCString();
+  var dateString= "";
+  var month= newDate.getMonth();
+  return dateString;
+  
+  
+}
