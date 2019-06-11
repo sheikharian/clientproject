@@ -13,16 +13,19 @@ $.ajax({
     console.log(response);
     console.log(response[0].woeid);
     var cityid=response[0].woeid;
+    
     $.ajax({
   url: "https://boiling-plateau-93045.herokuapp.com/https://www.metaweather.com/api/location/" + cityid + "/",
   method: "GET",
   success: function(response,status) {
-    $('#date').append("<h1>" + formatDate(response.consolidated_weather[0].applicable_date)+ "</h1>")
-    $('#temp').append("<h1 id='round'> Current Temp: " + convert(Math.round(response.consolidated_weather[0].the_temp)) + "&#8457</h1>");
-    $('#tempmin').append("<h1> Minimum Temp: " + convert(Math.round(response.consolidated_weather[0].min_temp)) + "&#8457</h1>");
-    $('#tempmax').append("<h1> Maximum Temp: " + convert(Math.round(response.consolidated_weather[0].max_temp)) + "&#8457</h1>");
-    $('#weathertype').append("<img src=" + weathericon(response.consolidated_weather[0].weather_state_abbr) + ">");
-    console.log(status);
+    $('#date').html("<h1>" + formatDate(response.consolidated_weather[0].applicable_date)+ "</h1>");
+    $('#temp').html("<h1 id='round'> Current Temp: " + convert(Math.round(response.consolidated_weather[0].the_temp)) + "&#8457</h1>");
+    $('#tempmin').html("<h1> Minimum Temp: " + convert(Math.round(response.consolidated_weather[0].min_temp)) + "&#8457</h1>");
+    $('#tempmax').html("<h1> Maximum Temp: " + convert(Math.round(response.consolidated_weather[0].max_temp)) + "&#8457</h1>");
+    $('#weathertype').html("<img src=" + weathericon(response.consolidated_weather[0].weather_state_abbr) + ">");
+    console.log(convert(Math.round(response.consolidated_weather[0].the_temp)));
+    
+    
     
     if(70 > convert(Math.round(response.consolidated_weather[0].the_temp)) && convert(Math.round(response.consolidated_weather[0].the_temp)) > 50) {
       return $(".circleText").css("background" , "rgba(236, 175, 83, 0.5)");
@@ -56,9 +59,11 @@ function weathericon (x){
 }
 
 function formatDate(date){
-  var newDate= new Date(date).toUTCString();
-  var dateString= "";
-  var month= newDate.getMonth();
+  var newDate= new Date(date);
+  var month= newDate.getUTCMonth()+1;
+  var day= newDate.getUTCDate();
+  var year= newDate.getUTCFullYear();
+  var dateString= month + "-"+ day +"-"+year;
   return dateString;
   
   
